@@ -1,4 +1,9 @@
 # !/bin/bash
 
 # Install kubernetes
-snap install kubectl --classic
+if [ "$1" = "install" ]
+then
+	snap install kubectl --classic;
+	snap install kubeadm --classic;
+	exit;
+fi
