@@ -1,9 +1,10 @@
 # !/bin/bash
 
 # Install kubernetes
-if [ "$1" = "install" ]
+if [ "$1" = "prelude" ]
 then
-	snap install kubectl --classic;
-	snap install kubeadm --classic;
+	sudo usermod -aG docker $(whoami);
 	exit;
 fi
+
+minikube start --vm-driver=docker
