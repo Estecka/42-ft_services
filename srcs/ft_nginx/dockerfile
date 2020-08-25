@@ -1,0 +1,11 @@
+FROM alpine
+
+RUN apk update \
+ && yes | apk add openrc --no-cache \
+ && yes | apk add nginx \
+ ;
+
+ADD files/ /
+
+CMD \
+	while true; do sleep 1; done;

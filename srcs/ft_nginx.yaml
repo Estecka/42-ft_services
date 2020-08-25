@@ -1,0 +1,147 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2020-08-25T13:08:35Z"
+  labels:
+    run: ftnginx
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:containers:
+          k:{"name":"ftnginx"}:
+            .: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-08-25T13:08:35Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"172.18.0.4"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2020-08-25T13:08:36Z"
+  name: ftnginx
+  namespace: default
+  resourceVersion: "60027"
+  selfLink: /api/v1/namespaces/default/pods/ftnginx
+  uid: cf20085c-a4f2-4878-9d67-3906c27166dd
+spec:
+  containers:
+  - image: ftnginx
+    imagePullPolicy: Never
+    name: ftnginx
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-fzflt
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-fzflt
+    secret:
+      defaultMode: 420
+      secretName: default-token-fzflt
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-25T13:08:35Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-25T13:08:36Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-25T13:08:36Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-08-25T13:08:35Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://30818db50aef66572844fe2e5c3f463c7cf4be241f39c851ca77f573377280dc
+    image: ftnginx:latest
+    imageID: docker://sha256:f2e24627ae03b95079970c7e3b20ed14c6b58aeaf3c36585f3ddbdf11280e3aa
+    lastState: {}
+    name: ftnginx
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-08-25T13:08:36Z"
+  hostIP: 172.17.0.2
+  phase: Running
+  podIP: 172.18.0.4
+  podIPs:
+  - ip: 172.18.0.4
+  qosClass: BestEffort
+  startTime: "2020-08-25T13:08:35Z"
