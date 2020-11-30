@@ -1,11 +1,12 @@
 FROM alpine
 
 RUN apk update \
- && yes | apk add openrc --no-cache \
- && yes | apk add nginx \
+ && apk add nginx \
+ && mkdir /run/nginx \
  ;
 
-ADD files/ /
+#ADD files/ /
 
-CMD \
-	while true; do sleep 1; done;
+EXPOSE 80
+
+CMD nginx -g 'daemon off;'
