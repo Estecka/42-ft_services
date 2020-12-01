@@ -1,11 +1,10 @@
 FROM alpine
 
 RUN apk update \
- && apk add nginx \
- && mkdir /run/nginx \
+ && apk add nginx && mkdir /run/nginx \
  ;
 
-#ADD files/ /
+ADD files/ /
 
 EXPOSE 80
 
