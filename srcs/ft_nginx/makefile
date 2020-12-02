@@ -1,15 +1,17 @@
+DEPLOYMENT = ftnginx
 IMAGE = ft_nginx
-FILES = $(shell find files/ -type f)
-TOKEN = ${IMAGE}.maketoken
 
-${TOKEN}: dockerfile ${FILES}
+all: image deploy
+
+image:
 	docker build -t ${IMAGE} ./
-	touch ${TOKEN}
 
-all: ${TOKEN}
+deploy:
+	kubectl apply -f ${IMAGE}.yaml
 
 clean:
-	rm ${TOKEN} -f
+	kubectl delete deployment ${DEPLOYMENT} | :
+	kubectl delete service ${DEPLOYMENT} | :
 
 fclean: clean
 	docker image rm ${IMAGE} | :
@@ -18,3 +20,5 @@ re: fclean all
 
 .PHONY: \
 	all re clean fclean \
+	deployment \
+	image \
