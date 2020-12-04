@@ -3,13 +3,16 @@ IMAGE = ft_nginx
 FILES = $(shell find files/ -type f)
 TOKEN = ${IMAGE}.maketoken
 
+all: ${TOKEN} deployment
+
 ${TOKEN}: dockerfile ${FILES}
 	docker build -t ${IMAGE} ./
 	touch ${TOKEN}
 
-all: ${TOKEN}
 
 deployment:
+	kubectl apply -f metallb.yaml
+	kubectl apply -f metallb-configmap.yaml
 	kubectl apply -f ${IMAGE}.yaml
 
 clean:

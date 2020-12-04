@@ -3,8 +3,9 @@ kind: Service
 metadata:
   name: ftnginx-svc
 spec:
+  type: LoadBalancer
   selector:
-    app: nginx
+    app: ftnginx
   ports:
     - protocol: TCP
       port: 80
@@ -15,16 +16,16 @@ kind: Deployment
 metadata: 
   name: ftnginx-dpl
   labels:
-    app: nginx
+    app: ftnginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: ftnginx
   template:
     metadata:
       labels:
-        app: nginx
+        app: ftnginx
     spec:
       containers:
       - name: ftnginx-ctn
@@ -32,8 +33,3 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 80
-      tolerations:
-      - key: "node.kubernetes.io/disk-pressure"
-        effect: NoSchedule
-        operator: Exists
-
