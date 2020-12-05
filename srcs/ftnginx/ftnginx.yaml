@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: ftnginx
-        image: ft_nginx
+        image: ftnginx
         imagePullPolicy: Never
         ports:
         - containerPort: 80
