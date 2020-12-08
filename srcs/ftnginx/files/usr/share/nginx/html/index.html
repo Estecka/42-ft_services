@@ -2,10 +2,30 @@
 	<head>
 		<title>Abaur's ft_service</title>
 		<meta name="author" content="abaur"/>
+		<script>
+			function SetPortHref(){
+				let links = document.getElementsByTagName("a");
+				for (let i=0; i<links.length; i++)
+				{
+					let l = links.item(i);
+					if (l.hasAttribute("port"))
+					{
+						l.href = window.location.protocol + "//" 
+							+ window.location.hostname 
+							+ ":" + l.getAttribute("port")
+							+ l.getAttribute("href");
+					}
+				}
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="SetPortHref()">
 		<h1>ft_services</h1>
-		<h2>by abaur@student.42.fr</h2>
-		<p>Hellow World.</p>
+		<h2>by abaur</h2>
+		<p>
+			<ul>
+				<li><a port=9090 href="/">Dashboard</a></li>
+			</ul>
+		</p>
 	</body>
 </html>
