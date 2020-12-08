@@ -1,10 +1,11 @@
 # https://metallb.universe.tf/installation/
+NODEIP = $(shell kubectl describe node minikube | grep InternalIP | cut -c16-32)
 
 all:
 	#minikube addons enable metrics-server;
 	kubectl apply -f namespace.yaml;
 	kubectl apply -f metallb.yaml;
-	kubectl apply -f config.yaml;
+	sed 's/NODEIP/${NODEIP}/g' < config.yaml | kubectl apply -f -;
 	kubectl create secret generic memberlist -n metallb-system \
 		--from-literal=secretkey="$$(openssl rand -base64 128)";
 
