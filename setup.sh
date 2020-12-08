@@ -1,4 +1,6 @@
-# !/bin/bash
+#!/bin/bash
+
+cd $(dirname $BASH_SOURCE) || exit 1
 
 sudo usermod -aG docker $(whoami) \
 && minikube delete \

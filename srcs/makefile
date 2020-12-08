@@ -1,4 +1,5 @@
 SERVICES = \
+	metallb \
 	ftnginx \
 
 all:

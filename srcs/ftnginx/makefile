@@ -15,7 +15,7 @@ clean:
 fclean: clean
 	docker image rm ${NAME} | :
 
-re: fclean all
+re: clean all
 
 .PHONY: \
 	all re clean fclean \
