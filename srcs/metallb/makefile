@@ -1,7 +1,7 @@
 # https://metallb.universe.tf/installation/
 
 all:
-	minikube addons enable metrics-server;
+	#minikube addons enable metrics-server;
 	kubectl apply -f namespace.yaml;
 	kubectl apply -f metallb.yaml;
 	kubectl apply -f config.yaml;
@@ -21,6 +21,6 @@ clean:
 
 
 fclean: clean
-	minikube addons disable metrics-server || :
+	#minikube addons disable metrics-server || :
 
 .PHONY: all re clean fclean
