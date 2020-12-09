@@ -9,11 +9,12 @@ deploy:
 	kubectl apply -f ${NAME}.yaml
 
 clean:
-	kubectl delete deployment ${NAME} | :
-	kubectl delete service ${NAME} | :
+	kubectl delete deployment ${NAME} || :
+	kubectl delete service ${NAME}-tcp || :
+	kubectl delete service ${NAME}-ssl || :
 
 fclean: clean
-	docker image rm ${NAME} | :
+	docker image rm ${NAME} || :
 
 re: clean all
 

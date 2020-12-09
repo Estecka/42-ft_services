@@ -3,29 +3,30 @@
 		<title>Abaur's ft_service</title>
 		<meta name="author" content="abaur"/>
 		<script>
-			function SetPortHref(){
+			function SetIPHref(){
 				let links = document.getElementsByTagName("a");
+				let ip = window.location.hostname;
 				for (let i=0; i<links.length; i++)
 				{
 					let l = links.item(i);
-					if (l.hasAttribute("port"))
-					{
-						l.href = window.location.protocol + "//" 
-							+ window.location.hostname 
-							+ ":" + l.getAttribute("port")
-							+ l.getAttribute("href");
-					}
+					l.href = l.getAttribute("href").replace("${IP}", ip);
 				}
 			}
 		</script>
 	</head>
-	<body onload="SetPortHref()">
+	<body onload="SetIPHref()">
 		<h1>ft_services</h1>
 		<h2>by abaur</h2>
 		<p>
-			<ul>
-				<li><a port=9090 href="/">Dashboard</a></li>
-			</ul>
+			<span title=":3c">Hellow World.</span>
 		</p>
+		<ul>
+			<li>
+				Nginx:
+				[<a href="http://${IP}">http</a>]
+				[<a href="https://${IP}">https</a>]
+			</li>
+			<li><a href="http://${IP}:9090">Kubernetes Dashboard</a></li>
+		</ul>
 	</body>
 </html>
