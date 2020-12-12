@@ -1,0 +1,3 @@
+FROM ftnginx
+
+ADD phpmyadmin/ /usr/share/nginx/html

@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftphpmyadmin
+  annotations:
+    metallb.universe.tf/allow-shared-ip: ftservices
+spec:
+  type: LoadBalancer
+  selector:
+    app: ftphpmyadmin
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 443
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: ftphpmyadmin
+  labels:
+    app: ftphpmyadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftphpmyadmin
+  template:
+    metadata:
+      labels:
+        app: ftphpmyadmin
+    spec:
+      containers:
+      - name: ftphpmyadmin
+        image: ftphpmyadmin
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 443

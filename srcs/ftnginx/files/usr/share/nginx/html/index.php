@@ -22,6 +22,7 @@ $host = $_SERVER['HTTP_HOST'];
 				[<a href="https://<?=$host?>">https</a>]
 			</li>
 			<li><a href="http://<?=$host?>:9090">Kubernetes Dashboard</a></li>
+			<li><a href="https://<?=$host?>:5000">PhpMyAdmin</a></li>
 		</ul>
 	</body>
 </html>
