@@ -2,10 +2,13 @@ FROM alpine
 
 RUN apk update \
  && apk add nginx && mkdir /run/nginx \
+ && apk add php7 php7-fpm php7-mysqli \
  ;
 
 ADD files/ /
 
 EXPOSE 80
 
-CMD nginx -g 'daemon off;'
+CMD php-fpm7 \
+ && nginx -g 'daemon off;' \
+ ;
