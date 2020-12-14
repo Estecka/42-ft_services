@@ -8,16 +8,6 @@ RUN apk update \
 
 ADD mariadb.cnf /etc/my.cnf.d/mariadb-server.cnf
 
-RUN mariadb-install-db -u root;
-
-RUN mysqld -u root \
- &  sleep 2 \
- && echo "\
-      CREATE USER 'user42'@'%' IDENTIFIED BY '';\
-      GRANT ALL PRIVILEGES ON *.* TO 'user42'@'%' WITH GRANT OPTION;\
-    " | mysql \
- ;
-
 EXPOSE 3306
 
-CMD mysqld -u root;
+CMD mariadb-install-db -u root && mysqld -u root;

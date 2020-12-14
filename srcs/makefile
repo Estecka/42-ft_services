@@ -2,6 +2,7 @@ SERVICES = \
 	metallb \
 	ftnginx \
 	ftphpmyadmin \
+	ftmysql \
 
 all:
 	make dashboard;
