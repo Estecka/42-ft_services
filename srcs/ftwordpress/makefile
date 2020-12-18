@@ -1,4 +1,4 @@
-NAME = ftphpmyadmin
+NAME = ftwordpress
 
 all: image deploy
 

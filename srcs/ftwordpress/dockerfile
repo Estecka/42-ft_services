@@ -1,3 +1,3 @@
 FROM ftnginx
 
-ADD phpmyadmin/ /usr/share/nginx/html
+ADD wordpress/ /usr/share/nginx/html/

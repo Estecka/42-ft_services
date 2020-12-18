@@ -1,8 +1,9 @@
 SERVICES = \
 	metallb \
 	ftnginx \
-	ftphpmyadmin \
 	ftmysql \
+	ftphpmyadmin \
+	ftwordpress \
 
 all:
 	make dashboard;
