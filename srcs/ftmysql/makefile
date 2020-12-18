@@ -1,13 +1,17 @@
 NAME = ftmysql
 
-all: image deploy
+all: image deploy database
 
 image:
 	docker build -t ${NAME} ./
 
 deploy:
 	kubectl apply -f ${NAME}.yaml;
-	./dbinit.sh;
+	./wait.sh
+
+database:
+	kubectl exec -i deploy/ftmysql -- mysql < dbuser.sql
+ 
 
 clean:
 	kubectl delete deployment            ${NAME} || :
