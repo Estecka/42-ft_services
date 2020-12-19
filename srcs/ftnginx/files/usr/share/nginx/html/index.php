@@ -16,14 +16,22 @@ $host = $_SERVER['HTTP_HOST'];
 			<b>Host IP</b>: <?=$host?>
 		</p>
 		<ul>
+			<li><a href="http://<?=$host?>:9090">Kubernetes Dashboard</a></li>
 			<li>
 				Nginx:
 				[<a href="http://<?=$host?>">http</a>]
 				[<a href="https://<?=$host?>">https</a>]
 			</li>
-			<li><a href="http://<?=$host?>:9090">Kubernetes Dashboard</a></li>
-			<li><a href="https://<?=$host?>:5000">PhpMyAdmin</a></li>
-			<li><a href="https://<?=$host?>:5050">Wordpress</a></li>
+			<li>
+				PhpMyAdmin:
+				[<a href="https://<?=$host?>:5000">:5000</a>]
+				[<a href="https://<?=$host?>/phpmyadmin">/phpmyadmin</a>]
+			</li>
+			<li>
+				Wordpress:
+				[<a href="https://<?=$host?>:5050">:5050</a>]
+				[<a href="https://<?=$host?>/wordpress">/wordpress</a>]
+			</li>
 		</ul>
 	</body>
 </html>
