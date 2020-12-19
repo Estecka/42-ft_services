@@ -1,3 +1,5 @@
 FROM ftnginx
 
 ADD phpmyadmin/ /usr/share/nginx/html
+
+RUN rm /usr/share/nginx/html/index+.php
