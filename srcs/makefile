@@ -4,6 +4,7 @@ SERVICES = \
 	ftmysql \
 	ftphpmyadmin \
 	ftwordpress \
+	ftftps \
 
 all:
 	make dashboard;
