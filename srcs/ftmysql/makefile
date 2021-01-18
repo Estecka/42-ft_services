@@ -27,3 +27,4 @@ re: clean all
 	all re clean fclean \
 	deployment \
 	image \
+	database \
