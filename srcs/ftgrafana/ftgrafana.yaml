@@ -10,21 +10,6 @@ spec:
     app: ftgrafana
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ftgrafana-ssl
-  annotations:
-    metallb.universe.tf/allow-shared-ip: ftservices
-spec:
-  type: LoadBalancer
-  selector:
-    app: ftgrafana
-  ports:
-    - protocol: TCP
       port: 3000
       targetPort: 3000
 ---
