@@ -32,6 +32,9 @@ $host = $_SERVER['HTTP_HOST'];
 				[<a href="https://<?=$host?>:5050">:5050</a>]
 				[<a href="https://<?=$host?>/wordpress">/wordpress</a>]
 			</li>
+			<li>
+				<a href="http://<?=$host?>:3000">Grafana</a>
+			</li>
 		</ul>
 	</body>
 </html>

@@ -5,6 +5,7 @@ SERVICES = \
 	ftphpmyadmin \
 	ftwordpress \
 	ftftps \
+	ftgrafana \
 
 all:
 	make dashboard;
