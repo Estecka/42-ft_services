@@ -1,8 +1,10 @@
 FROM alpine
 
 RUN apk update \
- && apk add grafana \
+ && apk add grafana --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
  ;
+
+ADD sources.yaml	/usr/share/grafana/conf/provisioning/datasources/sources.yaml
 
 EXPOSE 3000
 
