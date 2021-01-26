@@ -6,6 +6,8 @@ SERVICES = \
 	ftwordpress \
 	ftftps \
 	ftgrafana \
+	ftinfluxdb \
+	fttelegraf \
 
 all:
 	make dashboard;

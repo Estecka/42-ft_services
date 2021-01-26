@@ -1,0 +1,17 @@
+FROM alpine
+
+RUN : \
+ && wget -S -O /telegraf.tar.gz	https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz	\
+ && tar -C / -xz -f /telegraf.tar.gz	\
+ && rm -f /telegraf.tar.gz	\
+ && mv /telegraf/telegraf /usr/bin/	\ 
+ && mkdir -p /etc/telegraf	\
+ && mv /telegraf/telegraf.conf /etc/telegraf/	\
+ && rm -rf /telegraf	\
+ ;
+
+ADD telegraf.conf	/etc/telegraf/telegraf.conf
+
+EXPOSE 4999
+
+CMD telegraf;

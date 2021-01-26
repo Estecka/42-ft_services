@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fttelegraf
+spec:
+  type: ClusterIP
+  selector:
+    app: fttelegraf
+  ports:
+    - protocol: TCP
+      port: 4999
+      targetPort: 4999
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: fttelegraf
+  labels:
+    app: fttelegraf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fttelegraf
+  template:
+    metadata:
+      labels:
+        app: fttelegraf
+    spec:
+      containers:
+      - name: fttelegraf
+        image: fttelegraf
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 4999
