@@ -5,6 +5,8 @@ RUN apk update \
  ;
 
 ADD sources.yaml	/usr/share/grafana/conf/provisioning/datasources/sources.yaml
+ADD config.yaml 	/usr/share/grafana/conf/provisioning/dashboards/config.yaml
+ADD dashboards/ 	/usr/share/grafana/conf/provisioning/dashboards/mine/
 
 EXPOSE 3000
 
