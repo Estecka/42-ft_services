@@ -11,6 +11,7 @@ deploy:
 clean:
 	kubectl delete deployment ${NAME} || :
 	kubectl delete service    ${NAME} || :
+	kubectl delete clusterrolebinding	fabric8-rbac || :
 
 fclean: clean
 	docker image rm ${NAME} || :
