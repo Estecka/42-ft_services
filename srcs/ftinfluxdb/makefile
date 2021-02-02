@@ -14,8 +14,9 @@ database:
 		influx -execute "CREATE USER user42 WITH PASSWORD 'user42' WITH ALL PRIVILEGES"
 
 clean:
-	kubectl delete deployment ${NAME} || :
-	kubectl delete service    ${NAME} || :
+	kubectl delete deployment            ${NAME} || :
+	kubectl delete service               ${NAME} || :
+	kubectl delete persistentvolumeclaim ${NAME} || :
 
 fclean: clean
 	docker image rm ${NAME} || :

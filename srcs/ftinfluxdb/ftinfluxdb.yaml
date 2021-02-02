@@ -11,6 +11,19 @@ spec:
       port: 8086
       targetPort: 8086
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ftinfluxdb
+  labels:
+    app: ftinfluxdb
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -27,9 +40,16 @@ spec:
       labels:
         app: ftinfluxdb
     spec:
+      volumes:
+      - name: ftinfluxdb
+        persistentVolumeClaim:
+         claimName: ftinfluxdb
       containers:
       - name: ftinfluxdb
         image: ftinfluxdb
         imagePullPolicy: Never
         ports:
         - containerPort: 8086
+        volumeMounts:
+        - name: ftinfluxdb
+          mountPath: /var/lib/influxdb
