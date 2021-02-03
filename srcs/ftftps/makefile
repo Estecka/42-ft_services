@@ -12,8 +12,9 @@ deploy:
 
 
 clean:
-	kubectl delete deployment ${NAME} || :
-	kubectl delete service    ${NAME} || :
+	kubectl delete deployment            ${NAME} || :
+	kubectl delete service               ${NAME} || :
+	kubectl delete persistentvolumeclaim ${NAME} || :
 
 fclean: clean
 	docker image rm ${NAME} || :
