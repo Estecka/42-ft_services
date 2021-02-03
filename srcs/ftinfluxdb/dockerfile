@@ -2,7 +2,10 @@ FROM alpine
 
 RUN apk update \
  && apk add influxdb \
- && chown influxdb /var/lib/influxdb \
+# Move the conf file where influxdb will actually read it.
+# Why is that file in the wrong place to begin with ?!?
+ && mkdir -p /etc/influxdb	\
+ && mv /etc/influxdb.conf	/etc/influxdb/influxdb.conf	\
  ;
 
 EXPOSE 8086
